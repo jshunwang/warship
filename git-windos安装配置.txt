@@ -1,0 +1,45 @@
+1.下载地址：https://gitforwindows.org/
+2.安装：双击Git-2.20.1-64-bit.exe，一直回车到结束；
+3.配置用户信息：
+$ git config --global user.name "jshunwang"
+$ git config --global user.email jshunwang@sina.cn
+4.查看用户信息：
+$ git config --list
+
+5.配置远程仓库
+1）生成ssh key：
+$ ssh-keygen -t rsa -C "jshunwang@sina.cn"	//注意观察输出信息，信息提示id_rsa.pub的路径，该文件内卫sshkey
+2）GitHub网页上添加该ssh，此处过程略（登录账户——设置——ssh——添加ssh）
+3）检测是否添加成功：
+$ ssh -T git@github.com
+The authenticity of host 'github.com (13.250.177.223)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,13.250.177.223' (RSA) to the list of known hosts.
+Hi jshunwang! You've successfully authenticated, but GitHub does not provide shell access.
+
+4）github网页上创建一个库命名为“mytest”
+
+
+6.在本地建立一个仓库并push到GitHub上
+1）初始化库
+$ git init	
+Initialized empty Git repository in C:/Users/Administrator/Desktop/mytest/.git/
+//删除一个本地库—— $ rm -rf .git
+
+1）从远程clone一个库
+$ git clone git://github.com/jshunwang/warship.git	//这种只有读权限，不要用
+$ git clone git@github.com:jshunwang/warship.git
+
+2）禁止换行符自动转换
+$ git config --global core.autocrlf false
+3）向库中加所有文件
+$ git add --all
+4）查看库的状态
+$ git status	//查看本地库状态
+$ git remote	//查看相连的远程库
+4）提交
+$ git commit -m "2th edit"
+5) 推送到远程
+$ git push origin master
+
