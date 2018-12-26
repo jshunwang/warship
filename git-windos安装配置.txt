@@ -43,3 +43,8 @@ $ git commit -m "2th edit"
 5) 推送到远程
 $ git push origin master
 
+7.从远程更新到本地库
+1）下载分支
+$ git fetch
+2) 合并到本地
+$ git merge
